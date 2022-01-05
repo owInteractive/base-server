@@ -17,6 +17,15 @@ printf '\e[1;31m Buscando o arquivo id_rsa.pub \e[0m\n'
 printf '\e[1;31m Copiei e cole essa chave no repositorio remoto \e[0m\n'
 cat ~/.ssh/id_rsa.pub
 
+while true; do
+    read -p '\e[1;31m Copiado? \e[0m\n' yn
+    case $yn in
+        [Yy]* ) break;;
+        [Nn]* ) '\e[1;31m Por favor copie para continuar \e[0m\n';;
+        * ) echo '\e[1;31m Responda com uma alternativa válida \e[0m\n';;
+    esac
+done
+
 # Loggout admin
 printf '\e[1;31m Saindo de usuário root \e[0m\n'
 exit
