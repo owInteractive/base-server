@@ -26,10 +26,10 @@ cat ~/.ssh/id_rsa.pub
 #     esac
 # done
 
-echo "Do you wish to install this program?"
-select yn in "Yes" "No"; do
+echo '\e[1;31m Copiado? \e[0m\n'
+select yn in "Sim" "Não"; do
     case $yn in
-        Yes ) make install; break;;
+        Yes ) break;;
         No ) exit;;
     esac
 done
