@@ -22,5 +22,6 @@ read -p "Nome do projeto no bitbucket Ex:api-nest.base.com : " project
 echo "$project"
 
 rm -rf /var/www/html/$project
+rm -rf /var/www/html/$site
 git clone git@bitbucket.org:owinteractive/$project.git /var/www/html/$site
 cp /var/www/html/$site/.env.example /var/www/html/$site/.env
