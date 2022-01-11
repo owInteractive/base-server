@@ -23,4 +23,4 @@ echo "$project"
 
 rm -rf /var/www/html/$project
 git clone git@bitbucket.org:owinteractive/$project.git /var/www/html/$site
-cp /var/www/html/$site/.env.example .env
+cp /var/www/html/$site/.env.example /var/www/html/$site/.env
