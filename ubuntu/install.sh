@@ -10,7 +10,7 @@ sudo apt-get update -q -y --force-yes && sudo apt-get upgrade -q -y --force-yes 
 sudo apt-get --purge autoremove -q -y --force-yes && sudo apt-get autoclean -q -y --force-yes
 sudo rm -rf ~/.cache/thumbnails/*
 sudo dpkg --list | grep linux-image | awk '{ print $2 }' | sort -V | sed -n '/'`uname -r`'/q;p' | xargs sudo apt-get -y purge
-sudo apt-get install build-essential wget procps libarchive-tools libaio1 libxml2-dev openssh-client libssh2-1-dev libssh2-1 libpng-dev libfreetype6-dev libbz2-dev libgmp-dev libmagickwand-dev zlib1g-dev libicu-dev jpegoptim optipng pngquant gifsicle locales zip vim unzip git curl gnupg libcurl4-openssl-dev pkg-config libssl-dev libzip-dev  -q -y --force-yes
+sudo apt-get install build-essential gcc g++ make wget procps libarchive-tools libaio1 libxml2-dev openssh-client libssh2-1-dev libssh2-1 libpng-dev libfreetype6-dev libbz2-dev libgmp-dev libmagickwand-dev zlib1g-dev libicu-dev jpegoptim optipng pngquant gifsicle locales zip vim unzip git curl gnupg libcurl4-openssl-dev pkg-config libssl-dev libzip-dev  -q -y --force-yes
 
 #nginx
 sudo apt install nginx -q -y --force-yes
@@ -28,8 +28,12 @@ sudo nginx -v
 #certbot
 sudo snap install core; sudo snap refresh core
 sudo snap install --classic certbot
+sudo rm -rf /usr/bin/certbot
 sudo ln -sf /snap/bin/certbot /usr/bin/certbot
 
 #node
-sudo apt install nodejs npm -q -y --force-yes
-nodejs --version
+sudo curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/yarnkey.gpg >/dev/null
+echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt-get update && sudo apt-get install yarn nodejs -q -y --force-yes
+node -v
