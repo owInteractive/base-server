@@ -25,3 +25,7 @@ rm -rf /var/www/html/$project
 rm -rf /var/www/html/$site
 git clone git@bitbucket.org:owinteractive/$project.git /var/www/html/$site
 cp /var/www/html/$site/.env.example /var/www/html/$site/.env
+cd /var/www/html/$site/
+sudo sed -i 's/base_api_bd/localhost/g' .env
+sudo sed -i 's/owdev/root/g' .env
+cd ~/
