@@ -20,6 +20,13 @@ Conheça mais sobre nós em: [OW Interactive - Quem somos](http://www.owinteract
 
 - Ubuntu 21.10
 
+## Programados Instalados
+
+- Node 16
+- Nginx 20
+- Mariadb 20
+- Certbot 2
+
 ## Como rodar
 
 Primeiro você roda na linha de comando o arquivo de configuração de instalação de todas as programas, linguagens e cli's do projeto
@@ -30,9 +37,9 @@ Primeiro você roda na linha de comando o arquivo de configuração de instalaç
 
 Depois é necessário rodar o configurador do projeto
 
-`curl https://raw.githubusercontent.com/owInteractive/base-server/master/ubuntu/project.sh --output install.sh`
+`curl https://raw.githubusercontent.com/owInteractive/base-server/master/ubuntu/api.sh --output api.sh`
 
-`bash project.sh`
+`bash api.sh`
 
 Depois é só correr para o abraço, e configurar o certbot se necessário.
 
