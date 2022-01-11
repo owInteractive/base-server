@@ -18,7 +18,7 @@ Conheça mais sobre nós em: [OW Interactive - Quem somos](http://www.owinteract
 
 ## Requisitos
 
-- 21.10
+- Ubuntu 21.10
 
 ## Como rodar
 
