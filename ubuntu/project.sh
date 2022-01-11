@@ -74,9 +74,10 @@ sudo nginx -t
 sudo systemctl restart nginx
 
 cd /var/www/html/$site/
-mysql -u root <<EOF
+mysql -u root -psecret <<EOF
 DROP DATABASE api;
 CREATE DATABASE api;
+COMMIT;
 exit
 EOF
 node -r tsconfig-paths/register -r ts-node/register ./node_modules/typeorm-seeding/dist/cli.js -r src/config -n type-orm.module.ts -s MainSeeder seed
