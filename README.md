@@ -30,4 +30,6 @@ Depois é necessário rodar o configurador do projeto
 
 `curl -sL https://raw.githubusercontent.com/owInteractive/base-server/master/ubuntu/project.sh -H "Cache-Control: no-cache, no-store, must-revalidate" | sh`
 
-![Cachorro programando](https://github.com/owInteractive/desafio-backend/raw/master/media/dog.webp "Cachorro programando")
+Depois é só correr para o abraço, e configurar o certbot se necessário.
+
+![Brooklyn Nine-Nine](https://media.giphy.com/media/l4JySAWfMaY7w88sU/giphy.gif "Brooklyn Nine-Nine")
