@@ -53,6 +53,7 @@ CREATE DATABASE api;
 ALTER USER 'root'@'localhost' IDENTIFIED VIA mysql_native_password USING PASSWORD('secret');
 exit
 EOF
+sudo systemctl enable mariadb
 
 #pm2
 npm install pm2@latest -g
