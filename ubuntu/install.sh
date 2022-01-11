@@ -48,6 +48,7 @@ EOF
 mysql -u root <<EOF
 DROP DATABASE api;
 CREATE DATABASE api;
+ALTER USER 'root'@'localhost' IDENTIFIED VIA mysql_native_password USING PASSWORD('secret');
 exit
 EOF
 

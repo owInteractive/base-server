@@ -35,3 +35,47 @@ sudo dd if=/dev/zero of=/swapfile count=1024 bs=1MiB
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile
+
+sudo touch /etc/nginx/conf.d/$site.conf
+sudo echo "server {
+    listen 80;
+    server_name $site;
+
+    root /var/www/html/$site;
+    index index.html;
+
+    location ~/.well-known {
+        allow all;
+    }
+
+    resolver 8.8.8.8 8.8.4.4 valid=300s;
+    resolver_timeout 5s;
+    add_header Strict-Transport-Security 'max-age=63072000; includeSubdomains';
+    add_header X-Frame-Options DENY;
+    add_header X-Content-Type-Options nosniff;
+    access_log off;
+
+    proxy_read_timeout 300;
+    proxy_connect_timeout 300;
+    proxy_send_timeout 300;
+    client_max_body_size 10M;
+
+    location / {
+        proxy_pass http://localhost:3333;
+        proxy_http_version 1.1;
+        proxy_set_header Connection 'upgrade';
+    }
+
+    location ~* \.(jpg|jpeg|png|gif|ico|css|js)$ {
+        expires 365d;
+    }
+}" > /etc/nginx/conf.d/$site.conf
+sudo nginx -t
+sudo systemctl restart nginx
+
+cd /var/www/html/$site/
+node -r tsconfig-paths/register -r ts-node/register ./node_modules/typeorm-seeding/dist/cli.js -r src/config -n type-orm.module.ts -s MainSeeder seed
+npm run build
+pm2 delete all
+pm2 start dist/main.js --name "api"
+cd ~/
