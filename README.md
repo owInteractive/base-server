@@ -26,6 +26,7 @@ Conheça mais sobre nós em: [OW Interactive - Quem somos](http://www.owinteract
 - Nginx 20
 - Mariadb 20
 - Certbot 2
+- PM2 5
 
 ## Como rodar
 
