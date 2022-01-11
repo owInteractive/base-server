@@ -28,4 +28,10 @@ cp /var/www/html/$site/.env.example /var/www/html/$site/.env
 cd /var/www/html/$site/
 sudo sed -i 's/base_api_bd/localhost/g' .env
 sudo sed -i 's/owdev/root/g' .env
+npm install
 cd ~/
+
+sudo dd if=/dev/zero of=/swapfile count=1024 bs=1MiB
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
