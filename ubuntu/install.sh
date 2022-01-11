@@ -10,7 +10,9 @@ sudo apt-get update -q -y --force-yes && sudo apt-get upgrade -q -y --force-yes 
 sudo apt-get --purge autoremove -q -y --force-yes && sudo apt-get autoclean -q -y --force-yes
 sudo rm -rf ~/.cache/thumbnails/*
 sudo dpkg --list | grep linux-image | awk '{ print $2 }' | sort -V | sed -n '/'`uname -r`'/q;p' | xargs sudo apt-get -y purge
-sudo apt-get install build-essential gcc g++ make wget procps libarchive-tools libaio1 libxml2-dev openssh-client libssh2-1-dev libssh2-1 libpng-dev libfreetype6-dev libbz2-dev libgmp-dev libmagickwand-dev zlib1g-dev libicu-dev jpegoptim optipng pngquant gifsicle locales zip vim unzip git curl gnupg libcurl4-openssl-dev pkg-config libssl-dev libzip-dev  -q -y --force-yes
+sudo apt-get install build-essential gcc g++ make wget procps libarchive-tools libaio1 libxml2-dev openssh-client libssh2-1-dev libssh2-1 libpng-dev libfreetype6-dev libbz2-dev libgmp-dev libmagickwand-dev zlib1g-dev libicu-dev jpegoptim optipng pngquant gifsicle locales zip vim unzip git curl gnupg libcurl4-openssl-dev pkg-config libssl-dev libzip-dev -q -y --force-yes
+sudo apt install zsh -q -y --force-yes
+sudo usermod -s /usr/bin/zsh $(whoami)
 
 #nginx
 sudo apt install nginx -q -y --force-yes
