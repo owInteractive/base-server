@@ -24,11 +24,15 @@ Conheça mais sobre nós em: [OW Interactive - Quem somos](http://www.owinteract
 
 Primeiro você roda na linha de comando o arquivo de configuração de instalação de todas as programas, linguagens e cli's do projeto
 
-`curl -sL https://raw.githubusercontent.com/owInteractive/base-server/master/ubuntu/install.sh -H "Cache-Control: no-cache, no-store, must-revalidate" | sh`
+`curl https://raw.githubusercontent.com/owInteractive/base-server/master/ubuntu/install.sh --output install.sh`
+
+`bash install.sh`
 
 Depois é necessário rodar o configurador do projeto
 
-`curl -sL https://raw.githubusercontent.com/owInteractive/base-server/master/ubuntu/project.sh -H "Cache-Control: no-cache, no-store, must-revalidate" | sh`
+`curl https://raw.githubusercontent.com/owInteractive/base-server/master/ubuntu/project.sh --output install.sh`
+
+`bash project.sh`
 
 Depois é só correr para o abraço, e configurar o certbot se necessário.
 
