@@ -1,4 +1,4 @@
-# Base Server - OW Interactive 20/21
+# Base Server - OW Interactive
 
 ## Sobre a OW Interactive
 
