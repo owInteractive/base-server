@@ -21,10 +21,6 @@ sudo ufw allow 'Nginx Full'
 sudo chmod -R 755 /var/www/html/*
 sudo nginx -v
 
-# nest.owinteractive.com
-# read -p "Endereço do projeto  sem http(s) Ex:nest.owinteractive.com : " site
-# echo "$site"
-
 #certbot
 sudo snap install core; sudo snap refresh core
 sudo snap install --classic certbot
