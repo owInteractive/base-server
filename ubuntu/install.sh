@@ -37,3 +37,23 @@ curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /us
 echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt-get update && sudo apt-get install yarn nodejs -q -y --force-yes
 node -v
+
+#mariadb
+sudo apt install mariadb-server mariadb-client -q -y --force-yes
+mysql_secure_installation <<EOF
+y
+secret
+secret
+y
+y
+y
+y
+EOF
+mysql -u root <<EOF
+DROP DATABASE api;
+CREATE DATABASE api;
+exit
+EOF
+
+#pm2
+npm install pm2@latest -g
