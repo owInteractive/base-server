@@ -48,8 +48,11 @@ y
 y
 EOF
 mysql -u root <<EOF
-DROP DATABASE api;
-CREATE DATABASE api;
+IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'api')
+BEGIN
+  CREATE DATABASE api
+END;
+GO;
 ALTER USER 'root'@'localhost' IDENTIFIED VIA mysql_native_password USING PASSWORD('secret');
 exit
 EOF
