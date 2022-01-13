@@ -13,8 +13,8 @@ printf '\e[1;31m Buscando o arquivo id_rsa.pub \e[0m\n'
 printf '\e[1;31m Copiei e cole essa chave no repositorio remoto nas configurações do bitbucket \e[0m\n'
 cat ~/.ssh/id_rsa.pub
 
-# nest.owinteractive.com
-read -p "Endereço do projeto  sem http(s) Ex:nest.owinteractive.com : " site
+# api-v3.owinteractive.com
+read -p "Endereço do projeto  sem http(s) Ex:api-v3.owinteractive.com : " site
 echo "$site"
 
 # api-nest.base.com
