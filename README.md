@@ -27,6 +27,9 @@ Conheça mais sobre nós em: [OW Interactive - Quem somos](http://www.owinteract
 - Mariadb 20
 - Certbot 2
 - PM2 5
+- Redis 6
+- Mongo 3
+- Mailcatcher 2
 
 ## Como rodar
 
