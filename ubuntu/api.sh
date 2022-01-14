@@ -31,11 +31,6 @@ sudo sed -i 's/base_api_db/localhost/g' .env
 npm install
 cd ~/
 
-sudo dd if=/dev/zero of=/swapfile count=1024 bs=1MiB
-sudo chmod 600 /swapfile
-sudo mkswap /swapfile
-sudo swapon /swapfile
-
 sudo touch /etc/nginx/conf.d/$site.conf
 sudo echo "server {
     listen 80;
