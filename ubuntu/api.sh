@@ -28,6 +28,12 @@ cp /var/www/html/$site/.env.example /var/www/html/$site/.env
 cd /var/www/html/$site/
 sudo sed -i 's/owdev/root/g' .env
 sudo sed -i 's/base_api_db/localhost/g' .env
+sudo sed -i 's/base_api_redis/localhost/g' .env
+sudo sed -i 's/base_api_mongo/localhost/g' .env
+sudo sed -i 's/MONGO_USER=owdev/MONGO_USER=/g' .env
+sudo sed -i 's/MONGO_PASSWORD=secret/MONGO_PASSWORD=/g' .env
+sudo sed -i 's/MONGO_DATABASE=api/MONGO_DATABASE=/g' .env
+sudo sed -i 's/base_api_mailhog/localhost/g' .env
 npm install
 cd ~/
 
