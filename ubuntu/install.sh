@@ -52,7 +52,6 @@ IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'api')
 BEGIN
   CREATE DATABASE api
 END;
-GO;
 ALTER USER 'root'@'localhost' IDENTIFIED VIA mysql_native_password USING PASSWORD('secret');
 exit
 EOF
