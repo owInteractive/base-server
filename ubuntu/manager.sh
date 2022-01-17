@@ -26,9 +26,10 @@ rm -rf /var/www/html/$site
 git clone git@bitbucket.org:owinteractive/$project.git /var/www/html/$site
 cp /var/www/html/$site/.env.example /var/www/html/$site/.env
 cd /var/www/html/$site/
-sudo sed -i 's/VITE_BASE_API_URL=http://localhost:3333/VITE_BASE_API_URL=http://manager-v3.owinteractive.com/g' .env
+sudo sed -i 's/localhost:3333/api-v3.owinteractive.com/g' .env
+npm i -g @quasar/cli
 npm install
-npm build
+quasar build -m pwa
 cd ~/
 
 sudo touch /etc/nginx/conf.d/$site.conf
@@ -36,11 +37,20 @@ sudo echo "server {
     listen 80;
     server_name $site;
 
-    root /var/www/html/$site/dist;
+    root /var/www/html/$site/dist/pwa;
     index index.html;
 
     location ~/.well-known {
         allow all;
+    }
+
+    location / {
+      root /var/www/html/$site/dist/pwa;
+      try_files \$uri /index.html;
+    }
+
+    location ~*  \.(jpg|jpeg|png|gif|ico|css|js)$ {
+        expires 1d;
     }
 
     resolver 8.8.8.8 8.8.4.4 valid=300s;
@@ -54,10 +64,6 @@ sudo echo "server {
     proxy_connect_timeout 300;
     proxy_send_timeout 300;
     client_max_body_size 10M;
-
-    location ~* \.(jpg|jpeg|png|gif|ico|css|js)$ {
-        expires 365d;
-    }
 }" > /etc/nginx/conf.d/$site.conf
 sudo nginx -t
 sudo systemctl restart nginx
