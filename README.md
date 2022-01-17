@@ -39,11 +39,17 @@ Primeiro você roda na linha de comando o arquivo de configuração de instalaç
 
 `bash install.sh`
 
-Depois é necessário rodar o configurador do projeto
+Depois é necessário rodar o configurador do projeto da API
 
 `curl https://raw.githubusercontent.com/owInteractive/base-server/master/ubuntu/api.sh --output api.sh`
 
 `bash api.sh`
+
+E rodar o configurador do projeto do MANAGER
+
+`curl https://raw.githubusercontent.com/owInteractive/base-server/master/ubuntu/manager.sh --output api.sh`
+
+`bash manager.sh`
 
 Depois é só correr para o abraço, e configurar o certbot se necessário.
 
